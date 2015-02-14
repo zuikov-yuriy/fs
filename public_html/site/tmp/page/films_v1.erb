@@ -1,0 +1,63 @@
+<%= extends 'main.erb', 'body' %>
+
+<%= @h['test']%>
+<div style="width: auto; height: 150px;">
+  <div style="text-align: center;">Популярные</div>
+</div>
+
+
+<% @h['videos'].each do |video| %>
+    <div class="preview_block" style="height:300px; border: 1px solid #ccc;padding-top: 16px; padding-right: 10px; margin-bottom: 20px;">
+
+      <div class="left" style="float:left;">
+        <div class="image" style="margin-left: 10px;">
+          <a href="/film_play/<%=video["translit"]%>"><img class="img-rounded" src="<%= video["image"]%>" alt="<%= video["name"]%>"/></a>
+        </div>
+      </div>
+
+      <div class="right" style="float:left; margin-left: 20px; width:auto; height:auto;">
+        <div class="name" style="font-size: 15px;">
+          <div style="float: left;">
+            <a href="/film_play/<%=video["translit"]%>"><%= mb_truncate(video["name"], 70)%></a>
+          </div>
+          <div style="float: right;">
+            <div class="open_files" style="cursor: pointer">{файлы}</div>
+            <div class="files" style="position: absolute;width:auto; right:0; padding: 5px; background-color:#f2f2f2; border-radius: 3px; border: 1px solid #149bdf;">
+              <% video["audio"].each do |name, audio| %>
+                  <div><%=name%>
+                    <% audio.each do |quality, url| %>
+                        <a href="/film_play/<%=url[0]%>">Просмотр</a>
+                        <a href="<%=url[1]%>">Скачать</a> <br>
+                    <% end %>
+                  </div>
+              <% end %>
+            </div>
+          </div>
+          <div style="clear: both;"></div>
+        </div>
+        <div class="options" style="width: 745px; font-size: 13px;">
+          <div class="genre" style="">
+            <span style="font-weight: bold">Жанр:</span><span><%= video["genre"]%></span>
+          </div>
+          <div class="year" style="">
+            <span style="font-weight: bold">Год:</span><span><%= video["year"]%></span>
+          </div>
+          <div class="country" style="">
+            <span style="font-weight: bold">Страна:</span><span><%= video["country"]%></span>
+          </div>
+          <div class="cast" style="">
+            <span style="font-weight: bold">В ролях:</span><span><%= video["cast"]%></span>
+          </div>
+
+          <div class="notice" style="">
+            <span style="font-weight: bold">Описание:</span><span><%= mb_truncate(video["notice"], 800)%></span>
+          </div>
+
+
+
+        </div>
+      </div>
+
+      <br style="clear: both" />
+    </div>
+<% end %>

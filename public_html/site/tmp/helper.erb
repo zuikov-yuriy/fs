@@ -1,0 +1,16 @@
+<%
+
+   begin
+      @h['description']  =   @h['film_info'].name.force_encoding("UTF-8")+'. '+ @h['film_info'].notice.force_encoding("UTF-8")
+      name = @h['film_info'].name.force_encoding("UTF-8").split('/')
+      if name.count == 2
+      @h['keywords']  =   name[0]+','+ name[1]+','+@h['keywords']
+      else
+        @h['keywords']  =   name[0]+','+@h['keywords']
+      end
+    rescue
+   end
+
+
+
+%>

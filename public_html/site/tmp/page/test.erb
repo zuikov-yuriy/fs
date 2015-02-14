@@ -1,0 +1,9 @@
+<%= extends 'main.erb', 'body' %>
+
+<% @ii = 1%>
+
+<% @h['test'].each do |video| %>
+    <%= @ii %><%= video.name %>  <br>
+    <%@ii += 1%>
+<% end %>
+<div class="clear"></div>

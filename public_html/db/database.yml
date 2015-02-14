@@ -1,0 +1,7 @@
+adapter: mysql
+database: Video
+username:
+password:
+host:     localhost
+encoding: utf8
+pool: 30

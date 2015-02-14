@@ -1,0 +1,3 @@
+class HelperErb
+
+end

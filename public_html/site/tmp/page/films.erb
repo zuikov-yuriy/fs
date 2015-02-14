@@ -1,0 +1,89 @@
+<%= extends 'main.erb', 'body' %>
+
+<%= @h['test']%>
+<div style="width: auto; height: 150px;">
+  <div style="text-align: center; margin-bottom: 15px;">Новые поступления</div>
+  <div>
+    <% @h['new_video'].each do |video| %>
+        <div class="preview_block_index">
+
+          <div class="image">
+            <a href="/play/<%=video["translit"]%>" alt="<%= video["name"]%>">
+              <img class="img-rounded" src="<%= video["image"]%>" alt="<%= video["name"]%>"/>
+            </a>
+          </div>
+        </div>
+
+    <% end %>
+  </div>
+</div>
+
+
+<% @h['videos'].each do |video| %>
+    <div class="preview_block">
+
+        <div class="image">
+          <a href="/play/<%=video["translit"]%>" alt="<%= video["name"]%>">
+          <img class="img-rounded" src="<%= video["image"]%>" alt="<%= video["name"]%>"/>
+         </a>
+        </div>
+
+
+        <div class="name">
+          <a href="/play/<%=video["translit"]%>" alt="<%= video["name"]%>"><%= mb_truncate(video["name"], 25)%></a>
+        </div>
+
+    </div>
+
+<% end %>
+<div class="clear"></div>
+
+
+
+
+
+
+
+
+
+<div style="text-align: center;">
+
+  <% unless @h['pagination']['prev'].empty?  %>
+          <% unless @h['pagination']['active_page'] == 0 %>
+            <a href="/films/<%= @h['pagination']['prev'][0] %>">   назад   </a>
+          <% else %>
+              <span style="color:#CCC;">назад</span>
+          <% end %>
+  <% end %>
+
+ <% unless @h['pagination']['start'].empty?  %>
+    <% @h['pagination']['start'].each do |s| %>
+      <% unless s == '...'  %>
+        <span><a href="/films/<%=s%>"><%=s%></a></span>
+      <% else %>
+        <span><%=s%></span>
+      <% end %>
+    <% end %>
+ <% end %>
+
+ <span><b><%= @h['pagination']['active_page']%></b></span>
+
+ <% unless @h['pagination']['end'].empty?  %>
+    <% @h['pagination']['end'].each do |e| %>
+         <% unless e == '...'  %>
+          <span><a href="/films/<%=e%>"><%=e%></a></span>
+          <% else %>
+              <span><%=e%></span>
+          <% end %>
+    <% end %>
+ <% end %>
+
+  <% unless @h['pagination']['next'].empty?  %>
+      <% unless @h['pagination']['end'].count == 0 %>
+          <a href="/films/<%= @h['pagination']['next'][0] %>"> вперед</a>
+          <% else %>
+          <span style="color:#CCC;">вперед</span>
+      <% end %>
+  <% end %>
+
+</div>

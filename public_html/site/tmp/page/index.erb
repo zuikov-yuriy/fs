@@ -1,0 +1,32 @@
+<%= extends 'main.erb', 'body' %>
+
+<div style="text-align: center; margin-bottom: 15px;">Популярные фильм</div>
+<div>
+
+  <% @h['videos'].each do |video| %>
+      <div class="preview_block_index">
+
+        <div class="image">
+          <a href="/play/<%=video["translit"]%>" alt="<%= video["name"]%>">
+          <img class="img-rounded" src="<%= video["image"]%>" alt="<%= video["name"]%>"/>
+          </a>
+        </div>
+
+      </div>
+
+  <% end %>
+  <div class="clear"></div>
+
+</div>
+
+
+
+
+<%= @h['test']  %>
+
+
+
+
+
+
+

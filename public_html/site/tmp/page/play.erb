@@ -1,0 +1,101 @@
+<%= extends 'main.erb', 'body' %>
+
+<%= @h['test']%>
+<div style="font-size: 20px; color: #a9302a;margin:0px 0px 10px 30px; ">
+  <span><%= @h['film_info'].name.to_s.force_encoding("UTF-8")%></span>
+</div>
+
+
+
+
+<div style="float:right; margin:0px 30px 30px 30px; height: auto; margin-bottom: 20px;">
+  <div><img src="<%= @h['film_info'].image.to_s.force_encoding("UTF-8")%>" alt="<%= @h['film_info'].name.to_s.force_encoding("UTF-8")%>"></div>
+</div>
+
+<div style="width: 700px; margin-left:25px;">
+  <video style="background-color: #000000" id="video-active" class="video-active" width="700" height="400" controls="controls">
+    <source src="<%= @h["play"].to_s.force_encoding("UTF-8") %>" type="video/mp4">
+  </video>
+</div>
+
+<div style="clear: both"></div>
+
+
+<div>
+  <div class="open_files">Скачать</div>
+  <div class="files">
+    <% @h['track'].each do |track| %>
+          <span>
+            <a href="/play/<%=track["translit"].to_s.force_encoding("UTF-8")%>"><%= track["name"].to_s.force_encoding("UTF-8") %></a>
+          </span>
+          <span>
+            <a href="<%=track["play"].to_s.force_encoding("UTF-8")%>">Скачать</a>
+          </span>
+        <br>
+    <%end%>
+  </div>
+</div>
+
+
+<div class="description_f">
+  <div class="n">Жанр:</div><div><ul><li><%= @h['film_info'].genre.to_s.force_encoding("UTF-8")%></li></ul></div>
+  <div class="n">Год:</div><div><ul><li> <%= @h['film_info'].year.to_s.force_encoding("UTF-8")%></li></ul></div>
+  <div class="n">Страна:</div><div><ul><li> <%= @h['film_info'].country.to_s.force_encoding("UTF-8")%></li></ul></div>
+  <div class="n">Продюсер:</div><div><ul><li> <%= @h['film_info'].producer.to_s.force_encoding("UTF-8")%></li></ul></div>
+  <div class="n">Актёры:</div><div><ul><li> <%= @h['film_info'].cast.to_s.force_encoding("UTF-8")%></li></ul></div>
+  <div class="n">Описание:</div><div style="text-align: justify;"><ul><li><%= @h['film_info'].notice.to_s.force_encoding("UTF-8")%></li></ul></div>
+
+</div>
+<!--<div class="overview_video_wrapper">
+  <div class="video_player">
+    <div id="player1"></div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    jwplayer("player1").setup({
+        skin: "http://content.longtailvideo.com/skins/glow/glow.zip",
+        stretching: "fill",
+        flashplayer: "http://player.longtailvideo.com/player.swf",
+        image: "http://www.longtailvideo.com/content/images/jw-player/lWMJeVvV-720.jpg",
+        width: 720,
+        height:406,
+        levels: [
+            {file: "<%= @h["play"].to_s.force_encoding("UTF-8") %>"},
+        ]
+    });
+</script>-->
+
+
+
+
+
+<!--<div id="video">Loading the player...</div>
+<script type="text/javascript">
+    jwplayer("video").setup({
+        file: '<%= @h["play"].to_s.force_encoding("UTF-8") %>',
+        width: 960,
+        height:450,
+        stretching: "fill"
+    });
+</script>
+<br>
+
+ -->
+
+
+
+ <div>
+    Фильмы в этом жанре
+ </div>
+
+
+
+
+
+
+
+
+
+
+

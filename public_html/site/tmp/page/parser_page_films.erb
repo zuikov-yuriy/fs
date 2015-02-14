@@ -1,0 +1,18 @@
+<%= extends 'main.erb', 'body' %>
+
+<%= @h['test']  %>
+<br>
+
+<%= @h['time']  %>
+<br>
+
+<% @h['videos'].each do |video| %>
+    <a href="/fs_player?url=<%= video["url"] %>"><%= mb_truncate(video["name"], 90)%></a> <br>
+<% end %>
+
+
+
+
+
+
+

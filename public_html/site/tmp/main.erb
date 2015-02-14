@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<%= includes 'helper.erb'%>
+<html>
+<head>
+  <!--[if IE]>
+       <meta http-equiv="refresh" content="0;url=http://www.google.com/chrome/" />
+  <![endif]-->
+  <title><%= @h["title"].to_s.force_encoding("UTF-8")%></title>
+  <meta name="google-site-verification" content="5kfSZ-kvZLlFiXKpNpuKMcJokTX6-Ku1bzf64BEe_dE" />
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+  <meta http-equiv="Content-Language" content="ru">
+  <meta name="description" content="<%= @h['description']%>" />
+  <meta name="keywords" content="<%= @h["keywords"]%>" />
+  <link href="/images/favicon.ico" rel="shortcut icon" />
+  <link type="text/css" href="/bootstrap/css/bootstrap.css" rel="stylesheet" />
+  <link type="text/css" href="/css/style.css" rel="stylesheet" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script type="text/javascript" src="/js/script.js"></script>
+  <script type="text/javascript" src="/jwplayer/jwplayer.js"></script>
+
+</head>
+<body>
+
+  <div class="body">
+    <div class="top">
+         <%= includes 'top.erb'%>
+    </div>
+    <div style="">
+          <%=@body%>
+    </div>
+
+    <div class="footer">
+          <%= includes 'footer.erb'%>
+    </div>
+
+    <div class="clear"></div>
+    <br>
+            <!--LiveInternet counter--><script type="text/javascript"><!--
+          document.write("<a href='http://www.liveinternet.ru/click' "+
+                  "target=_blank><img src='//counter.yadro.ru/hit?t14.6;r"+
+                  escape(document.referrer)+((typeof(screen)=="undefined")?"":
+                  ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+                          screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+                  ";"+Math.random()+
+                  "' alt='' title='LiveInternet: показано число просмотров за 24"+
+                  " часа, посетителей за 24 часа и за сегодня' "+
+                  "border='0' width='88' height='31'><\/a>")
+          //--></script><!--/LiveInternet-->
+  </div>
+  <div style="color:#149bdf; text-align: center;"></div>
+
+</body>
+</html>

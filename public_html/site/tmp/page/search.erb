@@ -1,0 +1,24 @@
+<%= extends 'main.erb', 'body' %>
+
+
+<div style="width: auto; height: 150px;">
+  <div style="text-align: center;">Популярные</div>
+</div>
+
+
+<% @h['videos'].each do |video| %>
+    <div class="preview_block">
+
+      <div class="image">
+        <img class="img-rounded" src="<%= video["image"]%>" alt="<%= video["name"]%>" width="170"/>
+      </div>
+
+
+      <div class="name">
+        <a href="/play/<%=video["translit"]%>"><%= mb_truncate(video["name"], 30)%></a>
+      </div>
+
+    </div>
+
+<% end %>
+<div class="clear"></div>

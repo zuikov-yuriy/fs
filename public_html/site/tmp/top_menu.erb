@@ -1,0 +1,17 @@
+<div class="navbar" style="margin-top: 5px; margin-bottom: 10px;">
+  <div class="navbar-inner">
+    <ul class="nav">
+      <% {"Главная"=>"/", "Фильмы"=>"/films"}.each do |name, url| %>
+          <% if  url == @h['active']%>
+              <li class="active" ><a href="<%=url%>"><%=name%></a></li>
+          <% else %>
+              <li  ><a href="<%=url%>"><%=name%></a></li>
+          <% end %>
+
+      <% end %>
+
+    </ul>
+  </div>
+</div>
+
+

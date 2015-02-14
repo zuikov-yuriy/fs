@@ -1,0 +1,14 @@
+source 'https://rubygems.org'
+gem 'rspec'
+gem "webrick-high-performance", "~> 1.0.0"
+gem "puma", "~> 2.4.0"
+gem 'rack'
+gem 'rack-slashenforce'
+gem 'rack-rewrite'
+gem 'fiber_pool'
+gem 'thin'
+gem 'rspec'
+gem 'nokogiri'
+gem 'httpclient'
+gem "activerecord", "~> 4.0.0"
+gem "mysql", "~> 2.9.1"
